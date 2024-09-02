@@ -26,6 +26,26 @@ public class MergeSort {
         return keyComparisons;
     }
 
+    public static int sortHybrid(int[] array, int startIndex, int endIndex, int threshold){
+        int keyComparisons = 0;
+        if (endIndex - startIndex + 1 <= threshold){
+            keyComparisons = InsertionSort.sort(array, startIndex, endIndex);
+        }
+        else if (startIndex < endIndex){
+            
+            int midIndex = (startIndex + endIndex) / 2;
+            int leftSubarrayKeyComps = sortHybrid(array, startIndex, midIndex, threshold);
+            int rightSubarrayKeyComps = sortHybrid(array, midIndex + 1, endIndex, threshold);
+            
+            int mergeKeyComps = merge(array, startIndex, midIndex, endIndex);
+
+            keyComparisons += leftSubarrayKeyComps;
+            keyComparisons += rightSubarrayKeyComps;
+            keyComparisons += mergeKeyComps;
+        }
+        return keyComparisons;
+    }
+
     /**
      * Merges two sorted subarrays of the given array and counts the number of key comparisons made during the merge process.
      * This will mutate the array with the sorted values from startIndex to endIndex.
