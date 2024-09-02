@@ -8,16 +8,16 @@ public class MergeSort {
      * @param endIndex The ending index of the array to sort (usually array.length - 1).
      * @return The number of key comparisons made during sorting.
      */
-    public static int sort(int[] array, int startIndex, int endIndex){
-        int keyComparisons = 0;
+    public static long sort(int[] array, int startIndex, int endIndex){
+        long keyComparisons = 0;
         if (startIndex < endIndex){
             
 
             int midIndex = (startIndex + endIndex) / 2;
-            int leftSubarrayKeyComps = sort(array, startIndex, midIndex);
-            int rightSubarrayKeyComps = sort(array, midIndex + 1, endIndex);
+            long leftSubarrayKeyComps = sort(array, startIndex, midIndex);
+            long rightSubarrayKeyComps = sort(array, midIndex + 1, endIndex);
             
-            int mergeKeyComps = merge(array, startIndex, midIndex, endIndex);
+            long mergeKeyComps = merge(array, startIndex, midIndex, endIndex);
 
             keyComparisons += leftSubarrayKeyComps;
             keyComparisons += rightSubarrayKeyComps;
@@ -35,18 +35,18 @@ public class MergeSort {
      * @param threshold The threshold size below which insertion sort will be used instead of merge sort.
      * @return The total number of key comparisons made during the sort process.
      */
-    public static int sortHybrid(int[] array, int startIndex, int endIndex, int threshold){
-        int keyComparisons = 0;
+    public static long sortHybrid(int[] array, int startIndex, int endIndex, int threshold){
+        long keyComparisons = 0;
         if (endIndex - startIndex + 1 <= threshold){
             keyComparisons = InsertionSort.sort(array, startIndex, endIndex);
         }
         else if (startIndex < endIndex){
             
             int midIndex = (startIndex + endIndex) / 2;
-            int leftSubarrayKeyComps = sortHybrid(array, startIndex, midIndex, threshold);
-            int rightSubarrayKeyComps = sortHybrid(array, midIndex + 1, endIndex, threshold);
+            long leftSubarrayKeyComps = sortHybrid(array, startIndex, midIndex, threshold);
+            long rightSubarrayKeyComps = sortHybrid(array, midIndex + 1, endIndex, threshold);
             
-            int mergeKeyComps = merge(array, startIndex, midIndex, endIndex);
+            long mergeKeyComps = merge(array, startIndex, midIndex, endIndex);
 
             keyComparisons += leftSubarrayKeyComps;
             keyComparisons += rightSubarrayKeyComps;
@@ -65,8 +65,8 @@ public class MergeSort {
      * @param endIndex The ending index of the second subarray.
      * @return The number of key comparisons made during the merge process.
      */
-    protected static int merge(int[] array, int startIndex, int midIndex, int endIndex) {
-        int keyComparisons = 0;
+    protected static long merge(int[] array, int startIndex, int midIndex, int endIndex) {
+        long keyComparisons = 0;
         int leftSize = midIndex - startIndex + 1;
         int rightSize = endIndex - midIndex;
 

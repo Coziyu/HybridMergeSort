@@ -24,7 +24,7 @@ public class TestHybridMergeSort {
                 arr = testCases[i].clone();
                 System.out.println("Threshold: " + threshold);
                 // Sort the array and count the key comparisons
-                int keyComparisons = MergeSort.sortHybrid(arr, 0, arr.length - 1, threshold);
+                long keyComparisons = MergeSort.sortHybrid(arr, 0, arr.length - 1, threshold);
 
                 System.out.println("Sorted Array:\n" + Arrays.toString(arr));
                 System.out.println("Total Key Comparisons: " + keyComparisons);
