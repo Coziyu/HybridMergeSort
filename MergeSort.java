@@ -36,7 +36,7 @@ public class MergeSort {
      * @param endIndex The ending index of the second subarray.
      * @return The number of key comparisons made during the merge process.
      */
-    private static int merge(int[] array, int startIndex, int midIndex, int endIndex) {
+    protected static int merge(int[] array, int startIndex, int midIndex, int endIndex) {
         int keyComparisons = 0;
         int leftSize = midIndex - startIndex + 1;
         int rightSize = endIndex - midIndex;
