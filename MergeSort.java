@@ -25,7 +25,16 @@ public class MergeSort {
         }
         return keyComparisons;
     }
-
+    /**
+     * Sorts an array of integers, using a combination of merge sort and insertion sort. 
+     * When the size of the subarray falls below a `threshold`, insertion sort is used instead of merge sort.
+     * 
+     * @param array The array to be sorted. This array is modified in place.
+     * @param startIndex The starting index of the subarray to be sorted. This is inclusive.
+     * @param endIndex The ending index of the subarray to be sorted. This is inclusive.
+     * @param threshold The threshold size below which insertion sort will be used instead of merge sort.
+     * @return The total number of key comparisons made during the sort process.
+     */
     public static int sortHybrid(int[] array, int startIndex, int endIndex, int threshold){
         int keyComparisons = 0;
         if (endIndex - startIndex + 1 <= threshold){
