@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+// Ugly messy code here for a rough test to check whether InsertionSort implementation is correct.
+
 public class TestInsertionSort {
     public static void main(String[] args) {
         int[][] testCases = {
