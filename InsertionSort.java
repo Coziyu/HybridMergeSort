@@ -8,8 +8,8 @@ public class InsertionSort {
      * @param endIndex The ending index of the array to sort (usually array.length - 1).
      * @return The number of key comparisons made during sorting.
      */
-    public static int sort(int[] array, int startIndex, int endIndex) {
-        int keyComparisons = 0;
+    public static long sort(int[] array, int startIndex, int endIndex) {
+        long keyComparisons = 0;
 
         // Iterate over each element starting from the second one
         for (int i = startIndex + 1; i <= endIndex; i++) {

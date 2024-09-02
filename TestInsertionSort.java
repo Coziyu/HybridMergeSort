@@ -20,7 +20,7 @@ public class TestInsertionSort {
             System.out.println("Original Array: \n" + Arrays.toString(arr));
 
             // Sort the array and count the key comparisons
-            int keyComparisons = InsertionSort.sort(arr, 0, arr.length - 1);
+            long keyComparisons = InsertionSort.sort(arr, 0, arr.length - 1);
 
             System.out.println("Sorted Array:\n" + Arrays.toString(arr));
             System.out.println("Total Key Comparisons: " + keyComparisons);

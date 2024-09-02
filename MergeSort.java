@@ -12,7 +12,6 @@ public class MergeSort {
         long keyComparisons = 0;
         if (startIndex < endIndex){
             
-
             int midIndex = (startIndex + endIndex) / 2;
             long leftSubarrayKeyComps = sort(array, startIndex, midIndex);
             long rightSubarrayKeyComps = sort(array, midIndex + 1, endIndex);
@@ -38,7 +37,7 @@ public class MergeSort {
     public static long sortHybrid(int[] array, int startIndex, int endIndex, int threshold){
         long keyComparisons = 0;
         if (endIndex - startIndex + 1 <= threshold){
-            keyComparisons = InsertionSort.sort(array, startIndex, endIndex);
+            keyComparisons += InsertionSort.sort(array, startIndex, endIndex);
         }
         else if (startIndex < endIndex){
             
