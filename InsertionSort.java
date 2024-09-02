@@ -8,8 +8,8 @@ public class InsertionSort {
      * @param endIndex The ending index of the array to sort (usually array.length - 1).
      * @return The number of key comparisons made during sorting.
      */
-    public static int sortCountKeyComparisons(int[] array, int startIndex, int endIndex) {
-        int keyComparisonCount = 0;
+    public static int sort(int[] array, int startIndex, int endIndex) {
+        int keyComparisons = 0;
 
         // Iterate over each element starting from the second one
         for (int i = startIndex + 1; i <= endIndex; i++) {
@@ -18,7 +18,7 @@ public class InsertionSort {
 
             // Insert the key into the sorted portion of the array (array[startIndex, ..., i-1])
             while (j >= startIndex) {
-                keyComparisonCount++;
+                keyComparisons++;
 
                 // Shift elements to the right to make space for the key
                 if (array[j] > key) {
@@ -37,6 +37,6 @@ public class InsertionSort {
             array[j + 1] = key;
         }
 
-        return keyComparisonCount;
+        return keyComparisons;
     }
 }

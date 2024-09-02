@@ -15,7 +15,7 @@ public class TestInsertionSort {
             System.out.println("Original Array: \n" + Arrays.toString(arr));
 
             // Sort the array and count the key comparisons
-            int keyComparisons = InsertionSort.sortCountKeyComparisons(arr, 0, arr.length - 1);
+            int keyComparisons = InsertionSort.sort(arr, 0, arr.length - 1);
 
             System.out.println("Sorted Array:\n" + Arrays.toString(arr));
             System.out.println("Total Key Comparisons: " + keyComparisons);
@@ -25,7 +25,7 @@ public class TestInsertionSort {
 
             System.out.println("[Test Case] Start Index 2: ");
             // Sort the array and count the key comparisons
-            keyComparisons = InsertionSort.sortCountKeyComparisons(arr, 2, arr.length - 1);
+            keyComparisons = InsertionSort.sort(arr, 2, arr.length - 1);
 
             System.out.println("Sorted Array:\n" + Arrays.toString(arr));
             System.out.println("Total Key Comparisons: " + keyComparisons);
@@ -34,7 +34,7 @@ public class TestInsertionSort {
 
             System.out.println("[Test Case] Ending Index 2: ");
             // Sort the array and count the key comparisons
-            keyComparisons = InsertionSort.sortCountKeyComparisons(arr, 0, 2);
+            keyComparisons = InsertionSort.sort(arr, 0, 2);
 
             System.out.println("Sorted Array:\n" + Arrays.toString(arr));
             System.out.println("Total Key Comparisons: " + keyComparisons);
@@ -43,7 +43,7 @@ public class TestInsertionSort {
 
             System.out.println("[Test Case] Starting Index 1 Ending Index len - 2: ");
             // Sort the array and count the key comparisons
-            keyComparisons = InsertionSort.sortCountKeyComparisons(arr, 1, arr.length - 2);
+            keyComparisons = InsertionSort.sort(arr, 1, arr.length - 2);
 
             System.out.println("Sorted Array:\n" + Arrays.toString(arr));
             System.out.println("Total Key Comparisons: " + keyComparisons);
