@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class BenchmarkSorts {
 
+    
     private static int[] randIntArray(int length, int largestElement){
         return new Random().ints(length, 0, largestElement).toArray();
     }
@@ -67,30 +68,5 @@ public class BenchmarkSorts {
             averageTimeElapsed /= numSamples;
             System.out.printf("%-3s %-11s %s\n", insertionSortThreshold + ",", averageKeyComparisons + ", ", averageTimeElapsed);
         }
-        
-        // System.out.println("\n\nthres, size, keycomp, time");
-        // for(int fixedLength = 10; fixedLength < 100000; fixedLength += 2*fixedLength){
-        //     int numSamples = 100;
-        //     testCases = new ArrayList<int[]>();
-        //     for(int n = 0; n < numSamples; n++){
-        //         testCases.add(randIntArray(fixedLength, largestElement));
-        //     }
-        //     for(insertionSortThreshold = 0; insertionSortThreshold <= 100; insertionSortThreshold++){
-        //         double averageKeyComparisons = 0;
-        //         long averageTimeElapsed = 0;
-        //         for (int[] testCase : testCases) {
-        //             int[] input = testCase.clone();
-        //             long startTime = System.nanoTime();
-        //             long keyComparisons = MergeSort.sortHybrid(input.clone(), 0, input.length - 1, insertionSortThreshold);
-        //             long endTime = System.nanoTime();
-        //             averageKeyComparisons += keyComparisons;
-        //             averageTimeElapsed += endTime - startTime;
-        //         }
-        //         averageKeyComparisons /= numSamples;
-        //         averageTimeElapsed /= numSamples;
-        //         System.out.printf("%-3s %-8s %-11s %s\n", insertionSortThreshold + ",", fixedLength + ",", averageKeyComparisons + ", ", averageTimeElapsed);
-        //         // averageKeyComparisons /= numSamples;
-        //     }
-        // }
     }    
 }
