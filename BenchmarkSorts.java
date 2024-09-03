@@ -47,7 +47,7 @@ public class BenchmarkSorts {
 
         // ii)
         // We test with size = 10000
-        int fixedLength = 10000, numSamples = 100;
+        int fixedLength = 10000, numSamples = 10;
         testCases = new ArrayList<int[]>();
         for(int n = 0; n < numSamples; n++){
             testCases.add(randIntArray(fixedLength, largestElement));

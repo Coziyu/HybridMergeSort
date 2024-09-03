@@ -2,6 +2,9 @@
 
 ## TODO: Add description
 
+## Note:
+To generate the sort data, you can modify `BenchmarkSorts.java` or `GenerateStatsCSV.java` to that end.
+
 ## Build Instructions:
 ```
 git clone https://github.com/Coziyu/HybridMergeSort.git
@@ -10,4 +13,7 @@ javac *.java
 ```
 
 ## Running Instructions:
-Test Insertion Sort: `java TestInsertionSort`
+Options:
+- `java BenchmarkSorts.java`
+  - Run the benchmarks for assignments parts ci, cii
+- `java GenerateStatsCSV.java`
