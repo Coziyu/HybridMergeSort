@@ -37,7 +37,6 @@ public class BenchmarkSorts {
         System.out.println("Benchmark: fix threshold, vary input length:");
         int insertionSortThreshold = 4;
         for (int[] testCase : testCases) {
-            //TODO [] Add real time benchmarking
             int[] input = testCase.clone();
             long startTime = System.nanoTime();
             long keyComparisons = MergeSort.sortHybrid(input, 0, input.length - 1, insertionSortThreshold);
