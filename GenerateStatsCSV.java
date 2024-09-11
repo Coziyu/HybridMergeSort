@@ -10,7 +10,7 @@ public class GenerateStatsCSV {
     }
     public static void main(String[] args) {
         // Create a stream to redirect the standard print function output to:
-        File csvFile = new File("stats.csv");
+        File csvFile = new File("stats_combined.csv");
         FileOutputStream fos;
         try {
             fos = new FileOutputStream(csvFile, false);
@@ -22,13 +22,13 @@ public class GenerateStatsCSV {
         PrintStream ps = new PrintStream(fos);
 
 
-        int largestElement = 10000;
-        int longestArray = 1000000;
-        int shortestArray = longestArray;
-        int numSamples = 10;
+        int largestElement = 10000000;
+        int longestArray = 10000000;
+        int numSamples = 1;
+        int arrayLength = 10000000;
         System.out.println("Generating statistics.\n");
         ps.println("thres, size, keycomp, time");
-        for(int arrayLength = shortestArray; arrayLength <= longestArray; arrayLength *= 10){
+        for(double lenPower = 3; arrayLength <= longestArray; arrayLength = (int)Math.round(Math.pow(10, lenPower)), lenPower+=1){ //! Change lenPower to += 0.25 for more values
             ArrayList<int[]> testCases = new ArrayList<int[]>();
             for(int n = 0; n < numSamples; n++){
                 testCases.add(randIntArray(arrayLength, largestElement));
@@ -42,19 +42,21 @@ public class GenerateStatsCSV {
                 System.out.printf("Progress: %.2f %%%n", progress * 100); 
                 // These esoteric lines are for printing progress //
                 
-                long averageKeyComparisons = 0;
+                double averageKeyComparisons = 0;
                 long averageTimeElapsed = 0;
                 for (int[] testCase : testCases) {
                     int[] input = testCase.clone();
                     long startTime = System.nanoTime();
+                    
                     long keyComparisons = MergeSort.sortHybrid(input.clone(), 0, input.length - 1, insertionSortThreshold);
+                    
                     long endTime = System.nanoTime();
                     averageKeyComparisons += keyComparisons;
                     averageTimeElapsed += endTime - startTime;
                 }
                 averageKeyComparisons /= numSamples;
                 averageTimeElapsed /= numSamples;
-                ps.printf("%-4s %-8s %-11s %s\n", insertionSortThreshold + ",", arrayLength + ",", averageKeyComparisons + ", ", averageTimeElapsed);
+                ps.printf("%-4s %-9s %-11.1f %s\n", insertionSortThreshold + ",", arrayLength + ",", averageKeyComparisons, ", " + averageTimeElapsed);
             }
         }
 

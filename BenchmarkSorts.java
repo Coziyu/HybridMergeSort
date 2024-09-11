@@ -36,7 +36,7 @@ public class BenchmarkSorts {
         }
         System.out.println("i) Benchmark: Fix threshold S = 4, vary Array Length:");
         System.out.println("Array Length, Key Comps, Time (ms)");
-        int insertionSortThreshold = 4;
+        int insertionSortThreshold = 6;
         for (int[] testCase : testCases) {
             int[] input = testCase.clone();
             long startTime = System.nanoTime();
@@ -54,7 +54,7 @@ public class BenchmarkSorts {
         }
         System.out.println("\n\nii) Benchmark: Fix Array Length = 100,000, vary threshold S, average of " + numSamples + " samples:");
         System.out.println("Threshold, Key Comps, Time (ms)");
-        for(insertionSortThreshold = 0; insertionSortThreshold <= 100; insertionSortThreshold++){
+        for(insertionSortThreshold = 0; insertionSortThreshold <= 1000; insertionSortThreshold++){
             long averageKeyComparisons = 0;
             double averageTimeElapsed = 0;
             for (int[] testCase : testCases) {
@@ -80,7 +80,7 @@ public class BenchmarkSorts {
         }
         System.out.println("\n\niii) Benchmark: Compare Classic Mergesort, and Hybrid Mergesort with threshold S = 6, average of " + numSamples + " samples:");
         System.out.println("Threshold, Key Comps, Time (ms)");
-        for(insertionSortThreshold = 0; insertionSortThreshold <= 6; insertionSortThreshold += 6){
+        for(insertionSortThreshold = 0; insertionSortThreshold <= 10; insertionSortThreshold += 6){
             long averageKeyComparisons = 0;
             double averageTimeElapsed = 0;
             for (int[] testCase : testCases) {
