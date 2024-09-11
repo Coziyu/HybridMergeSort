@@ -25,7 +25,7 @@ public class GenerateStatsCSV {
         int largestElement = 10000000;
         int longestArray = 10000000;
         int numSamples = 1;
-        int arrayLength = 10000000;
+        int arrayLength = 1000;
         System.out.println("Generating statistics.\n");
         ps.println("thres, size, keycomp, time");
         for(double lenPower = 3; arrayLength <= longestArray; arrayLength = (int)Math.round(Math.pow(10, lenPower)), lenPower+=1){ //! Change lenPower to += 0.25 for more values
